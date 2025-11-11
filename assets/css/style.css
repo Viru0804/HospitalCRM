@@ -1,0 +1,414 @@
+/* ============================
+   Hospital CRM Frontend Styles
+   ============================ */
+
+/* --- Base Reset & Typography --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+  background-color: #fff;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* --- Layout Split --- */
+.split {
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+.left-panel {
+  flex: 1;
+  min-width: 320px;
+  background: linear-gradient(180deg, #0e41e0, #1a74e4 60%, #215ee0 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.left-inner {
+  max-width: 400px;
+  width: 100%;
+}
+
+.trial-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.trial-sub {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.icon-check {
+  color: #90ee90;
+  margin-right: 6px;
+}
+
+/* --- Left Panel Benefits --- */
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.benefit-icon {
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.benefit-text h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.benefit-text p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* --- Left Footer --- */
+.left-footer {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: #fff;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- Right Panel --- */
+.right-panel {
+  flex: 1;
+  min-width: 400px;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand img {
+  width: 130px;
+  margin: 0 auto 30px;
+}
+
+.welcome-card,
+.login-card,
+.otp-card {
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+}
+
+.welcome-title,
+.login-title {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.welcome-sub,
+.login-sub {
+  color: #808080;
+  margin-bottom: 2rem;
+}
+
+/* --- Clinic Cards --- */
+.clinic-form {
+  width: 100%;
+}
+
+.clinic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.clinic-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #f9f9f9;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.clinic-card:hover {
+  border-color: #0e41e0;
+}
+
+.clinic-card input {
+  display: none;
+}
+
+.card-visual {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.card-text .card-title {
+  font-weight: 700;
+  color: #0e41e0;
+  display: block;
+  font-size: 1.1rem;
+}
+
+.card-sub {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.card-radio {
+  margin-left: auto;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.clinic-card input:checked + .card-visual {
+  background: #f0f9ff;
+  border-radius: 8px;
+}
+
+.clinic-card input:checked + .card-visual .card-radio {
+  border-color: #0e41e0;
+  background: radial-gradient(circle at center, #0e41e0 45%, transparent 50%);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #0e41e0, #1a74e4);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease-in;
+  width: 100%;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #0d39c0, #1a64c8);
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Form Inputs --- */
+.input-group input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  transition: 0.2s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #0e41e0;
+}
+
+/* --- Divider --- */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #aaa;
+  margin: 2rem 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider span {
+  padding: 0 10px;
+}
+
+/* --- Social Buttons --- */
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-buttons .btn {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: 0.2s;
+}
+
+.social-buttons .btn:hover {
+  background: #eef2ff;
+  border-color: #0e41e0;
+}
+
+/* --- OTP Inputs --- */
+.otp-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.otp-box {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.otp-box:focus {
+  outline: none;
+  border-color: #0e41e0;
+  box-shadow: 0 0 0 3px rgba(14,65,224,0.15);
+}
+
+.resend-timer {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.resend-timer span {
+  color: #0e41e0;
+  font-weight: 600;
+}
+
+.resend-link {
+  background: none;
+  border: none;
+  color: #0e41e0;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resend-link:hover {
+  text-decoration: underline;
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .split {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    padding: 30px 20px;
+  }
+
+  .right-panel {
+    padding: 40px 20px;
+  }
+
+  .otp-box {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .otp-box {
+    width: 45px;
+    height: 45px;
+  }
+
+  .btn {
+    padding: 0.7rem 1rem;
+  }
+}
+
