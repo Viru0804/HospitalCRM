@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,7 +32,9 @@
         <ul class="benefits">
           <li class="benefit">
             <div class="benefit-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-7 8a7 7 0 0 1 14 0v1H5Z" fill="currentColor"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-7 8a7 7 0 0 1 14 0v1H5Z" fill="currentColor" />
+              </svg>
             </div>
             <div class="benefit-text">
               <h2>Invite unlimited colleagues</h2>
@@ -40,7 +43,9 @@
           </li>
           <li class="benefit">
             <div class="benefit-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5Zm0 7L2 4v13l10 5 10-5V4l-10 5Z" fill="currentColor"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2 2 7l10 5 10-5-10-5Zm0 7L2 4v13l10 5 10-5V4l-10 5Z" fill="currentColor" />
+              </svg>
             </div>
             <div class="benefit-text">
               <h2>Ensure compliance</h2>
@@ -49,7 +54,9 @@
           </li>
           <li class="benefit">
             <div class="benefit-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7v3L3 14v8h18v-8l-2-2V9a7 7 0 0 0-7-7Zm0 6a3 3 0 1 1-3 3 3 3 0 0 1 3-3Z" fill="currentColor"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2a7 7 0 0 0-7 7v3L3 14v8h18v-8l-2-2V9a7 7 0 0 0-7-7Zm0 6a3 3 0 1 1-3 3 3 3 0 0 1 3-3Z" fill="currentColor" />
+              </svg>
             </div>
             <div class="benefit-text">
               <h2>Built-in security</h2>
@@ -69,7 +76,9 @@
 
           <div class="lang">
             <span class="lang-icon">🌐</span>
-            <select><option>English</option></select>
+            <select>
+              <option>English</option>
+            </select>
           </div>
         </footer>
       </div>
@@ -92,10 +101,13 @@
         <p class="login-sub">Enter your mobile number to login.</p>
 
         <form id="loginForm" autocomplete="off" novalidate>
-          <div class="input-group">
-            <label for="mobile" class="sr-only">Mobile Number</label>
+          <div class="input-group phone-input">
+            <label for="mobile" class="phone-label">
+              <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Call Icon">
+            </label>
             <input type="tel" id="mobile" name="mobile" maxlength="10" placeholder="Enter mobile number" required>
           </div>
+
 
           <button type="button" id="sendOtpBtn" class="btn btn-primary">Send OTP</button>
 
@@ -104,8 +116,8 @@
           </div>
 
           <div class="social-buttons">
-            <button type="button" class="btn btn-google"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt=""> Google Account</button>
-            <button type="button" class="btn btn-gmail"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt=""> Gmail</button>
+            <button type="button" class="btn btn-google"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google_Account"> Google Account</button>
+            <button type="button" class="btn btn-gmail"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Google_Email"> Gmail</button>
           </div>
         </form>
       </section>
@@ -144,4 +156,5 @@
 
   <script src="<?= base_url('assets/js/script.js'); ?>" defer></script>
 </body>
+
 </html>

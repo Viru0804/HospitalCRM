@@ -9,7 +9,8 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: 'Inter', sans-serif;
   color: #1a1a1a;
@@ -20,6 +21,7 @@ html, body {
 img {
   max-width: 100%;
   display: block;
+  width: 15px;
 }
 
 a {
@@ -31,7 +33,9 @@ ul {
   list-style: none;
 }
 
-button, input, select {
+button,
+input,
+select {
   font-family: inherit;
 }
 
@@ -57,17 +61,18 @@ button, input, select {
 }
 
 .left-panel {
-  flex: none;
-  min-width: 671px;
-  height: 1024px;
-  background: linear-gradient(180deg, #0e41e0, #1a74e4 60%, #215ee0 100%);
+  flex: 1;
+  min-width: 320px;
+  background: linear-gradient(180deg,
+      #2B1F77 0%,
+      #164EA4 32%,
+      #0070B5 62%,
+      #2B1F77 100%);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
-  overflow: hidden;
-  position: relative;
 }
 
 .left-inner {
@@ -205,6 +210,7 @@ button, input, select {
   align-items: center;
   cursor: pointer;
   transition: 0.2s;
+  margin-bottom: 10px;
 }
 
 .clinic-card:hover {
@@ -243,12 +249,12 @@ button, input, select {
   transition: 0.2s;
 }
 
-.clinic-card input:checked + .card-visual {
+.clinic-card input:checked+.card-visual {
   background: #f0f9ff;
   border-radius: 8px;
 }
 
-.clinic-card input:checked + .card-visual .card-radio {
+.clinic-card input:checked+.card-visual .card-radio {
   border-color: #0e41e0;
   background: radial-gradient(circle at center, #0e41e0 45%, transparent 50%);
 }
@@ -265,6 +271,7 @@ button, input, select {
   cursor: pointer;
   transition: background 0.2s ease-in;
   width: 100%;
+  margin-top: 10px;
 }
 
 .btn:hover {
@@ -357,7 +364,7 @@ button, input, select {
 .otp-box:focus {
   outline: none;
   border-color: #0e41e0;
-  box-shadow: 0 0 0 3px rgba(14,65,224,0.15);
+  box-shadow: 0 0 0 3px rgba(14, 65, 224, 0.15);
 }
 
 .resend-timer {
@@ -384,13 +391,34 @@ button, input, select {
   text-decoration: underline;
 }
 
-@media (max-width: 1200px) {
-  .left-panel {
-    width: 100%;
-    height: auto;
-    min-height: 600px;
-  }
+/* Phone Input With Icon Inside Label */
+.phone-input {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
+
+.phone-label {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  pointer-events: none;
+  top: -10px;
+}
+
+.phone-label img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+.phone-input input {
+  width: 100%;
+  padding-left: 48px !important;
+}
+
 
 /* --- Responsive --- */
 @media (max-width: 900px) {
@@ -422,4 +450,3 @@ button, input, select {
     padding: 0.7rem 1rem;
   }
 }
-
