@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
@@ -9,10 +9,19 @@ class Auth extends CI_Controller
     }
 
     public function login()
+{
+    $clinic = $this->input->get('clinic');
+
+    $this->session->set_userdata('clinic', $clinic);
+
+    $data['clinic'] = $clinic;
+
+    $this->load->view('auth/login', $data);
+}
+
+
+    public function dashboard()
     {
-        // We'll build this view in the next step
-        $clinic = $this->input->get('clinic'); // manoday|sunshine
-        $data['clinic'] = $clinic ?: '';
-        $this->load->view('auth/login', $data); // (login.php coming next)
+        $this->load->view('dashboard');  // because file is in /views/dashboard.php
     }
 }

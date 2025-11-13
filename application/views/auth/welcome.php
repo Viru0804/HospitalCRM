@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,15 +21,19 @@
 
   <!-- Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Clinic Selection - Hospital CRM",
-    "description": "Select your clinic to continue to login.",
-    "publisher": { "@type": "Organization", "name": "Hospital CRM" }
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Clinic Selection - Hospital CRM",
+      "description": "Select your clinic to continue to login.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Hospital CRM"
+      }
+    }
   </script>
 </head>
+
 <body class="page welcome-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -45,7 +50,9 @@
           <li class="benefit">
             <div class="benefit-icon" aria-hidden="true">
               <!-- simple inline svg icon -->
-              <svg width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Colleagues"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-7 8a7 7 0 0 1 14 0v1H5Z" fill="currentColor"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Colleagues">
+                <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-7 8a7 7 0 0 1 14 0v1H5Z" fill="currentColor" />
+              </svg>
             </div>
             <div class="benefit-text">
               <h2>Invite unlimited colleagues</h2>
@@ -54,7 +61,9 @@
           </li>
           <li class="benefit">
             <div class="benefit-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5Zm0 7L2 4v13l10 5 10-5V4l-10 5Z" fill="currentColor"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2 2 7l10 5 10-5-10-5Zm0 7L2 4v13l10 5 10-5V4l-10 5Z" fill="currentColor" />
+              </svg>
             </div>
             <div class="benefit-text">
               <h2>Ensure compliance</h2>
@@ -63,7 +72,9 @@
           </li>
           <li class="benefit">
             <div class="benefit-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7v3L3 14v8h18v-8l-2-2V9a7 7 0 0 0-7-7Zm0 6a3 3 0 1 1-3 3 3 3 0 0 1 3-3Z" fill="currentColor"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2a7 7 0 0 0-7 7v3L3 14v8h18v-8l-2-2V9a7 7 0 0 0-7-7Zm0 6a3 3 0 1 1-3 3 3 3 0 0 1 3-3Z" fill="currentColor" />
+              </svg>
             </div>
             <div class="benefit-text">
               <h2>Built-in security</h2>
@@ -103,6 +114,7 @@
 
         <form action="<?= site_url('auth/login'); ?>" method="get" class="clinic-form" aria-describedby="clinic-help">
           <fieldset class="clinic-list">
+
             <!-- Card 1 -->
             <label class="clinic-card">
               <input type="radio" name="clinic" value="manoday" />
@@ -142,7 +154,17 @@
   </div>
 
   <!-- Page script (will handle enabling the button; full JS added later) -->
+  <script>
+    const BASE_URL = "<?= base_url(); ?>";
+  </script>
   <script src="<?= base_url('assets/js/script.js'); ?>" defer></script>
-  <noscript><style>.btn[disabled]{opacity:1}</style></noscript>
+  <noscript>
+    <style>
+      .btn[disabled] {
+        opacity: 1
+      }
+    </style>
+  </noscript>
 </body>
+
 </html>

@@ -1,0 +1,62 @@
+/* Sidebar Background Gradient */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(180deg, #2B1F77 0%, #164EA4 32%, #0070B5 62%, #2B1F77 100%);
+    padding: 25px 20px;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.sidebar-logo {
+    width: 130px;
+    height: auto;
+}
+
+/* Menu List */
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin-bottom: 18px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 15px;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+/* White outlined icons */
+.menu a .icon img {
+    width: 22px;
+    filter: brightness(0) invert(1); /* makes icons white */
+}
+
+/* Hover effect */
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Active menu item */
+.menu li.active a {
+    background: rgba(255, 255, 255, 0.20);
+    font-weight: 600;
+}

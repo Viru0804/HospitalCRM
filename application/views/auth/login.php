@@ -114,10 +114,10 @@
           <div class="divider">
             <span>or continue with</span>
           </div>
-
+          
           <div class="social-buttons">
             <button type="button" class="btn btn-google"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google_Account"> Google Account</button>
-            <button type="button" class="btn btn-gmail"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Google_Email"> Gmail</button>
+            <button type="button" class="btn btn-gmail"><img src="<?= base_url('assets/img/gmail.png'); ?>"> Gmail</button>
           </div>
         </form>
       </section>

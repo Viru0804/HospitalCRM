@@ -76,12 +76,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- Verify Button (placeholder) ---
   if (verifyBtn) {
     verifyBtn.addEventListener("click", function () {
-      const otp = Array.from(otpBoxes).map((b) => b.value).join("");
+
+      const otp = Array.from(otpBoxes).map(b => b.value).join("");
+
       if (otp.length < 4) {
         alert("Please enter the 4-digit OTP");
         return;
       }
-      alert("OTP verified successfully! (placeholder)");
+
+      // FINAL ABSOLUTE REDIRECT
+      window.location.href = "http://localhost/hospital/dashboard";
     });
   }
 

@@ -1,429 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$sidebar_logo = ($clinic == 'manoday') ? 'manoday.png' : 'sunshine.png';
+?>
+
+<aside class="sidebar">
+    
+    <link rel="stylesheet" href="<?= base_url('assets/css/sidebar.css'); ?>">
+    
+    <ul class="menu">
+
+        <!-- Dashboard -->
+        <li class="<?= ($active == 'dashboard') ? 'active' : '' ?>">
+            <a href="<?= base_url('dashboard'); ?>">
+                <span class="icon">
+                    <img src="<?= base_url('assets/icons/dashboard.svg'); ?>" alt="">
+                </span>
+                Dashboard
+            </a>
+        </li>
+
+        <!-- Patients -->
+        <li class="<?= ($active == 'patients') ? 'active' : '' ?>">
+            <a href="#">
+                <span class="icon">
+                    <img src="<?= base_url('assets/icons/patients.svg'); ?>" alt="">
+                </span>
+                Patients
+            </a>
+        </li>
+
+        <!-- Appointments -->
+        <li>
+            <a href="#">
+                <span class="icon">
+                    <img src="<?= base_url('assets/icons/appointments.svg'); ?>" alt="">
+                </span>
+                Appointments
+            </a>
+        </li>
+
+        <!-- Prescriptions -->
+        <li>
+            <a href="#">
+                <span class="icon">
+                    <img src="<?= base_url('assets/icons/prescriptions.svg'); ?>" alt="">
+                </span>
+                Prescriptions
+            </a>
+        </li>
+
+        <!-- Team Management -->
+        <li>
+            <a href="#">
+                <span class="icon">
+                    <img src="<?= base_url('assets/icons/team.svg'); ?>" alt="">
+                </span>
+                Team Management
+            </a>
+        </li>
+
+        <!-- Follow-ups -->
+        <li>
+            <a href="#">
+                <span class="icon">
+                    <img src="<?= base_url('assets/icons/followup.svg'); ?>" alt="">
+                </span>
+                Follow-ups
+            </a>
+        </li>
+
+        <!-- Communication -->
+        <li>
+            <a href="#">
+                <span class="icon">
+                    <img src="<?= base_url('assets/icons/chat.svg'); ?>" alt="">
+                </span>
+                Communication
+            </a>
+        </li>
+
+        <!-- Reports -->
+        <li>
+            <a href="#">
+                <span class="icon">
+                    <img src="<?= base_url('assets/icons/reports.svg'); ?>" alt="">
+                </span>
+                Reports
+            </a>
+        </li>
+
+        <!-- Settings -->
+        <li>
+            <a href="#">
+                <span class="icon">
+                    <img src="<?= base_url('assets/icons/settings.svg'); ?>" alt="">
+                </span>
+                Settings
+            </a>
+        </li>
+
+    </ul>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Billing Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="<?= base_url('assets\Images\letter-m-logo-red-hexagon-260nw-1264253242.webp') ?>">
-
-    <style>
-        /* Sidebar */
-        a {
-            text-decoration: none;
-        }
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 16px;
-            background-color: #f8f9fa;
-            color: #343a40;
-            margin: 0;
-        }
-
-        ::-webkit-scrollbar {
-            width: 0;
-        }
-
-        /* === Layout === */
-        .main {
-            width: 100%;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        /* === Sidebar === */
-        #sidebar {
-            width: 280px;
-            height: 100vh;
-            background: linear-gradient(to bottom, #d14e78 0%, #7e153e 100%);
-            color: #fff;
-            position: sticky;
-            top: 0;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-            transition: all 0.35s ease-in-out;
-        }
-
-        #sidebar.collapsed {
-            margin-left: -280px;
-        }
-
-        .sidebar-nav {
-            flex: 1 1 auto;
-            overflow-y: auto;
-        }
-
-        /* === Sidebar Logo === */
-        .sidebar-logo {
-            text-align: center;
-            padding: 1.2rem;
-            position: relative;
-        }
-
-        .sidebar-logo img {
-            width: 90px;
-            height: 90px;
-        }
-
-        .sidebar-logo span {
-            font-weight: bold;
-            font-size: 1.4rem;
-            background: linear-gradient(to bottom, rgb(255, 217, 0), #b8860b);
-            /* -webkit-background-clip: text; */
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        /* === Close Button (Mobile) === */
-        .close-sidebar {
-            display: none;
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            color: #333;
-            cursor: pointer;
-        }
-
-        /* === Sidebar Link === */
-        .page-heading {
-            background: linear-gradient(90deg, #fffbe6 0%, #ffe4b5 100%);
-            color: #8B004D !important;
-            font-weight: 700;
-            padding: 8px 10px;
-
-            margin-bottom: 20px;
-            border-radius: 4px 4px 4px 4px !important;
-        }
-
-        .sidebar-link {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem 1.25rem;
-            font-size: 18px;
-            color: #fff;
-            position: relative;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
-
-        .sidebar-link i {
-            margin-right: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        /* Hover Effects */
-        .sidebar-link:hover,
-        .sidebar-link:focus {
-            background: linear-gradient(90deg, rgba(209, 78, 120, 0.9) 0%, rgba(139, 0, 77, 0.9) 100%);
-            color: #fff !important;
-            box-shadow: 0 2px 12px rgba(209, 78, 120, 0.15);
-            transform: translateX(6px) scale(1.03);
-            z-index: 1;
-        }
-
-        /* .sidebar-link:hover i,
-        .sidebar-link:focus i {
-            /* color: #FFD700; */
-
-        */
-
-        /* Active Link */
-        .sidebar-link.active {
-            background: linear-gradient(90deg, #fffbe6 0%, #ffe4b5 100%);
-            color: #8B004D !important;
-            font-weight: 700;
-            border-left: 4px solid #8b004d;
-            box-shadow: 0 2px 8px rgba(255, 217, 0, 0.1);
-        }
-
-        .sidebar-link.active i {
-            color: #d14e78 !important;
-        }
-
-        /* === Dropdown Arrows Working === */
-        .sidebar-link[data-bs-toggle="collapse"]::after {
-            content: "";
-            border: solid currentColor;
-            border-width: 0 2px 2px 0;
-            padding: 3px;
-            position: absolute;
-            right: 1.5rem;
-            top: 1.25rem;
-            transform: rotate(45deg);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
-            transform: rotate(-45deg);
-        }
-
-        /* Submenu Items */
-        .nav .nav-item .sidebar-link {
-            padding-left: 2rem;
-            font-size: 17px;
-        }
-
-        .collapse {
-            margin-left: 0.5rem;
-        }
-
-        /* === Footer === */
-        .sidebar-footer {
-            padding: 0.75rem 1.25rem;
-        }
-
-        .sidebar-footer a {
-            font-size: 16px;
-            color: #fff;
-        }
-
-        .sidebar-footer a:hover {
-            background: linear-gradient(90deg, #8B004D 0%, #d14e78 100%);
-            color: #fff !important;
-            transform: translateX(4px) scale(1.02);
-        }
-
-        /* === Navbar === */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px 15px;
-            background-color: #fff;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.35s ease-in-out;
-        }
-
-        /* === Toggler Button === */
-        .toggler-btn {
-            background-color: transparent;
-            cursor: pointer;
-            border: 0;
-            display: inline-block;
-        }
-
-        .toggler-btn i {
-            font-size: 1.75rem;
-            color: #333;
-            font-weight: 600;
-        }
-
-        /* === Responsive === */
-        @media (max-width: 768px) {
-            #sidebar {
-                position: fixed;
-                z-index: 1100;
-                left: 0;
-                top: 0;
-            }
-
-            #sidebar.collapsed {
-                margin-left: 0;
-            }
-
-            .sidebar-toggle {
-                margin-left: -280px;
-            }
-
-            .close-sidebar {
-                display: block;
-            }
-
-            .navbar {
-                height: 9%;
-                width: 100%;
-                left: 0;
-            }
-        }
-
-        @media (max-width: 991px) {
-            .dropdown-menu-end {
-                left: auto;
-                right: 0;
-            }
-        }
-
-        @media (max-width: 530px) {
-            #notificationDropdown {
-                max-width: 300px !important;
-                margin-left: 0 !important;
-            }
-        }
-    </style>
-
-
-
-
-</head>
-
-<body>
-    <div class="d-flex">
-        <aside id="sidebar" class="sidebar-toggle bg-light">
-            <div class="sidebar-logo">
-                <i class="bi bi-x-lg close-sidebar mt-3"></i>
-            </div>
-            <!-- Sidebar Navigation -->
-            <ul class="sidebar-nav p-0 mt-4" style="font-size: 1.15rem;">
-                <!-- Profile Image & Name -->
-                <li class="sidebar-item text-center mb-4">
-
-
-                    <span class="page-heading">Mahalaxmi Collection</span>
-                </li>
-
-                <!-- Dashboard -->
-                <li class="sidebar-item">
-                    <a href="<?= base_url('Dashboard') ?>" class="sidebar-link" id="dashboard-link" style="font-size: 20px;">
-                        <i class="bi bi-house-fill"></i>
-                        <span class="ms-1">Dashboard</span>
-                    </a>
-                </li>
-
-                <!-- Services -->
-                <li class="sidebar-item">
-                    <a href="<?= base_url('Categories') ?>" class="sidebar-link" id="dashboard-link" style="font-size: 20px;">
-                        <i class="bi bi-tags-fill"></i>
-                        <span class="ms-1">Categories</span>
-                    </a>
-                    <!-- <div class="collapse" id="servicesSubmenu">
-                        <ul class="nav flex-column ms-3">
-                            <li class="nav-item">
-                                <a href="http://localhost/Mahalaxmi/Dashboard/Categories" class="sidebar-link" id="saree-link" style="font-size: 18px;">
-                                    <i class="bi bi-flower1"></i>
-                                    <span class="ms-1">Saree</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="http://localhost/Mahalaxmi/dress" class="sidebar-link" id="dress-link" style="font-size: 18px;">
-                                    <i class="bi bi-person-lines-fill"></i>
-                                    <span class="ms-1">Dress</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="http://localhost/Mahalaxmi/accessories" class="sidebar-link" id="accessories-link" style="font-size: 18px;">
-                                    <i class="bi bi-gem"></i>
-                                    <span class="ms-1">Accessories</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div> -->
-                </li>
-
-                <!-- Billing -->
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link dropdown-toggle collapsed" id="billing-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#billingSubmenu" aria-expanded="false" style="font-size: 20px;">
-                        <i class="bi bi-receipt-cutoff"></i>
-                        <span class="ms-1">Billing</span>
-                    </a>
-                    <div class="collapse" id="billingSubmenu">
-                        <ul class="nav flex-column ms-3">
-                            <li class="nav-item">
-                                <a href="<?= base_url('BillSection') ?>" class="sidebar-link" id="billsection-link" style="font-size: 18px;">
-                                    <i class="bi bi-file-earmark-plus"></i>
-                                    <span class="ms-1">Bill Section</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= base_url('BillHistory') ?>" class="sidebar-link" id="billhistory-link" style="font-size: 18px;">
-                                    <i class="bi bi-clock-history"></i>
-                                    <span class="ms-1">Bill History</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- Reports -->
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link dropdown-toggle collapsed" id="reports-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#reportsSubmenu" aria-expanded="false" style="font-size: 20px;">
-                        <i class="bi bi-bar-chart-fill"></i>
-                        <span class="ms-1">Reports</span>
-                    </a>
-                    <div class="collapse" id="reportsSubmenu">
-                        <ul class="nav flex-column ms-3">
-                            <li class="nav-item">
-                                <a href="<?= base_url('DailyReport') ?>" class="sidebar-link" id="dailyreport-link" style="font-size: 18px;">
-                                    <i class="bi bi-calendar-day"></i>
-                                    <span class="ms-1">Daily Report</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= base_url('MonthlyReport') ?>" class="sidebar-link" id="monthlyreport-link" style="font-size: 18px;">
-                                    <i class="bi bi-calendar2-month"></i>
-                                    <span class="ms-1">Monthly Report</span>
-                                </a>
-                            </li>
-
-                            <!-- <li class="nav-item">
-                                <a href="http://localhost/Mahalaxmi/AdminController/yearlyreport" class="sidebar-link" id="yearlyreport-link" style="font-size: 18px;">
-                                    <i class="bi bi-calendar2-range"></i>
-                                    <span class="ms-1">Yearly Report</span>
-                                </a>
-                            </li> -->
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- Profile -->
-                <li class="sidebar-item">
-                    <a href="<?= base_url('Profile') ?>" class="sidebar-link" id="profile-link" style="font-size: 20px;">
-                        <i class="bi bi-person-fill"></i>
-                        <span class="ms-1">Profile</span>
-                    </a>
-                </li>
-            </ul>
-
-
-            <!-- LOGOUT -->
-
-            <div class="sidebar-footer mb-3">
-                <a href="#" id="logout-btn" class="sidebar-link" style="font-size: 16px;">
-                    <i class="bi bi-box-arrow-left"></i>
-                    <span class="ms-1">Log out</span>
-                </a>
-            </div>
-
-
-    </div>
-
-
-    </aside>
-
-
-    <script>
-        document.getElementById('logout-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "Do you really want to logout?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, logout',
-                cancelButtonText: 'Cancel',
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "<?= base_url('AdminController/login') ?>";
-                }
-            });
-        });
-    </script>
-
-    <!-- SweetAlert2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-</body>
-
-</html>
+</aside>

@@ -1,18 +1,38 @@
-<style>
-/* .navbar{
-position: fixed!important;
-top:0;
-left: 280px;
-} */
-</style>
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm position-relative fixed-top px-3">
-    <!-- Hamburger Toggler -->
-    <button class="toggler-btn btn" type="button" id="sidebarToggle">
-        <i class="bi bi-list fs-4"></i>
-    </button>
+<?php
+$logo = "sunshine.png";  // default
 
-    <!-- Centered Brand Title -->
-    <div class="navbar-brand-center fw-bold fs-4 gradient-text">
-        MAHALAKSHMI COLLECTION
+if (isset($clinic)) {
+    if ($clinic == "manoday") {
+        $logo = "manoday.png";
+    } else if ($clinic == "sunshine") {
+        $logo = "sunshine.png";
+    }
+}
+?>
+
+<header class="topbar">
+
+    <link rel="stylesheet" href="<?= base_url('assets/css/navbar.css'); ?>">
+
+    <div class="topbar-left">
+
+        <!-- Dynamic Clinic Logo -->
+        <img src="<?= base_url('assets/img/' . $logo); ?>" class="nav-logo" alt="Clinic Logo">
+
+        <span class="back-btn">❮</span>
+
+        <h2 class="nav-title">
+            <?= isset($page_title) ? $page_title : 'Admin Dashboard'; ?>
+        </h2>
     </div>
-</nav>
+
+    <div class="topbar-right">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search for anything..." class="search-input">
+        </div>
+
+        <button class="icon-btn">🔔</button>
+        <img src="https://i.pravatar.cc/50" class="nav-profile">
+    </div>
+</header>
