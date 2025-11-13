@@ -94,9 +94,6 @@
 
     <!-- Right Panel (Welcome) -->
     <main id="main" class="right-panel" role="main" aria-labelledby="welcome-title">
-      <div class="brand">
-        <img src="<?= base_url('assets/img/brand-mark.png'); ?>" alt="Hospital CRM logo">
-      </div>
 
       <section class="welcome-card">
         <h1 id="welcome-title" class="welcome-title">Welcome!</h1>
@@ -106,8 +103,6 @@
 
         <form action="<?= site_url('auth/login'); ?>" method="get" class="clinic-form" aria-describedby="clinic-help">
           <fieldset class="clinic-list">
-            <legend class="sr-only">Clinics</legend>
-
             <!-- Card 1 -->
             <label class="clinic-card">
               <input type="radio" name="clinic" value="manoday" />

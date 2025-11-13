@@ -57,14 +57,17 @@ button, input, select {
 }
 
 .left-panel {
-  flex: 1;
-  min-width: 320px;
+  flex: none;
+  min-width: 671px;
+  height: 1024px;
   background: linear-gradient(180deg, #0e41e0, #1a74e4 60%, #215ee0 100%);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
+  overflow: hidden;
+  position: relative;
 }
 
 .left-inner {
@@ -190,6 +193,7 @@ button, input, select {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  border: none;
 }
 
 .clinic-card {
@@ -380,6 +384,13 @@ button, input, select {
   text-decoration: underline;
 }
 
+@media (max-width: 1200px) {
+  .left-panel {
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+  }
+}
 
 /* --- Responsive --- */
 @media (max-width: 900px) {
