@@ -142,8 +142,6 @@
             </label>
           </fieldset>
 
-          <p id="clinic-help" class="form-help">Select a clinic to continue.</p>
-
           <div class="actions">
             <!-- Button stays as a normal submit; JS will enable/disable later -->
             <button type="submit" class="btn btn-primary" disabled>Continue</button>
