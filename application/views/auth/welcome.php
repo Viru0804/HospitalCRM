@@ -121,7 +121,7 @@
               <span class="card-visual">
                 <img src="<?= base_url('assets/img/manoday.png'); ?>" alt="Manoday logo">
                 <span class="card-text">
-                  <span class="card-title">Manoday</span>
+                  <span class="card-title">MANODAY</span>
                   <span class="card-sub">Mind Care Clinic</span>
                 </span>
                 <span class="card-radio" aria-hidden="true"></span>
@@ -134,7 +134,7 @@
               <span class="card-visual">
                 <img src="<?= base_url('assets/img/sunshine.png'); ?>" alt="Sunshine logo">
                 <span class="card-text">
-                  <span class="card-title">Sunshine</span>
+                  <span class="card-title">SUNSHINE</span>
                   <span class="card-sub">Counselling and Therapy centre</span>
                 </span>
                 <span class="card-radio" aria-hidden="true"></span>

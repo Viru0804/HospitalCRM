@@ -22,7 +22,7 @@ if (isset($clinic)) {
         <span class="back-btn">❮</span>
 
         <h2 class="nav-title">
-            <?= isset($page_title) ? $page_title : 'Admin Dashboard'; ?>
+            <?= isset($page_title) ? $page_title : 'ADMIN Dashboard'; ?>
         </h2>
     </div>
 

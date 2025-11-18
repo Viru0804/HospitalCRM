@@ -24,7 +24,7 @@ $sidebar_logo = ($clinic == 'manoday') ? 'manoday.png' : 'sunshine.png';
                 <span class="icon">
                     <img src="<?= base_url('assets/icons/patients.svg'); ?>" alt="">
                 </span>
-                Patients
+                PATIENTS
             </a>
         </li>
 
