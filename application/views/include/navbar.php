@@ -29,7 +29,7 @@ if (isset($clinic)) {
     <div class="topbar-right">
         <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" placeholder="Search for anything..." class="search-input">
+            <input type="text" placeholder="Search for results..." class="search-input">
         </div>
 
         <button class="icon-btn">🔔</button>

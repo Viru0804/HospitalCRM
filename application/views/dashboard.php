@@ -44,7 +44,7 @@ $this->load->view('include/navbar', $data);
 
                 <div class="card">
                     <h4>Today's Appointments</h4>
-                    <h2>60</h2>
+                    <h2>70</h2>
                     <p>⬇ 12% decrease from last month</p>
                 </div>
 
