@@ -112,7 +112,7 @@
           <button type="button" id="sendOtpBtn" class="btn btn-primary">Send OTP</button>
 
           <div class="divider">
-            <span>or continue WITH</span>
+            <span>OR continue WITH</span>
           </div>
           
           <div class="social-buttons">
