@@ -122,7 +122,7 @@
                 <img src="<?= base_url('assets/img/manoday.png'); ?>" alt="Manoday logo">
                 <span class="card-text">
                   <span class="card-title">MANODAY</span>
-                  <span class="card-sub">MIND Care Clinic</span>
+                  <span class="card-sub">Mind Care Clinic</span>
                 </span>
                 <span class="card-radio" aria-hidden="true"></span>
               </span>
